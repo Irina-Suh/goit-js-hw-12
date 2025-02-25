@@ -7,23 +7,31 @@ const API_KEY = '48860281-d74be350dbe4d701146d01f08';
 // const baseUrl = "https://pixabay.com";
 // const endPoint = "/api";
 
-export function searchImg(searchName) {
+export async function searchImg(searchName, page, perPage) {
+   
  
-  const params = new URLSearchParams({
+    const params = new URLSearchParams({
  
 
       key: API_KEY,
       q: searchName,
-        image_type: 'photo',
-        orientation: 'horizontal',
-    safesearch: 'true',
-         per_page: 10,
+      image_type: 'photo',
+      orientation: 'horizontal',
+      safesearch: 'true',
+      page : page,
+      per_page: perPage,
 
-  });
-  const url = `https://pixabay.com/api?${params}`;
+    });
+    const url = `https://pixabay.com/api/?${params}`;
  
-  return  axios.get(url)
-
+    return await axios.get(url)
+  // catch(error) {
+  //   console.error('Error:', error);
+// }
 }
+
+
+
+
 
 
