@@ -91,14 +91,14 @@ btnLoadMore.addEventListener('click', async (e) => {
  // console.log("Поточна сторінка:", params.page);
  
 
-  checkBtnStatus();
+ // checkBtnStatus();
   hideLoadMoreBtn();
   loadMsg.innerHTML = '"Wait, loading more images" <span class="loader"></span>'; 
     const response = await searchImg(params.searchName, params.page, params.perPage)
   
     ShowGallery(response.data.hits, true)
     scroll();   
-   //checkBtnStatus();
+   checkBtnStatus();
       loadMsg.textContent = "";
 
 })
